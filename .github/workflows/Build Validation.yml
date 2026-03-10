@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v6
     - uses: actions/setup-java@v5
       with:
-        distribution: 'zulu'
+        distribution: 'temurin'
         java-version: '25'
         cache: 'gradle'
     # Declares the repository safe and not under dubious ownership.
