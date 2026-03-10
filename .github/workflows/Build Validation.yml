@@ -18,10 +18,14 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-22.04
-    # This grabs the WPILib docker container
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-java@v5
+      with:
+        distribution: 'zulu'
+        java-version: '25'
+        cache: 'gradle'
     # Declares the repository safe and not under dubious ownership.
     - name: Add repository to git safe directories
       run: git config --global --add safe.directory $GITHUB_WORKSPACE
@@ -35,5 +39,5 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
     # Runs a single command using the runners shell
-    - name: Compile and run tests on robot code (Build)
+    - name: Compile and run tests (Build)
       run: ./gradlew build --build-cache
