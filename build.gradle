@@ -18,6 +18,10 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
 
 allprojects {
     repositories {
